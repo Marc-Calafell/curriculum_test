@@ -15,4 +15,10 @@ class StudiesControllerTest extends TestCase
     {
         $this->assertTrue(true);
     }
+
+    public function testIndex() {
+        $this->call('GET','studies');
+        $this->assertTrue(true);
+    }
+
 }
