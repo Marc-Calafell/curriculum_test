@@ -19,11 +19,18 @@ class StudiesControllerTest extends TestCase
         $this->assertTrue(true);
     }
 
+    public function testIndexNotLogged(){
+
+
+    }
+
     public function testIndex() {
         $user=factory(App\User::class)->create();
         $this->actingAs($user);
-        $this->call('GET','studies');
+        $this->get('studies');
         $this->assertResponseOk();
+
+        $this->assertViewHas('studies');
     }
 
 }
