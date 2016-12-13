@@ -17,7 +17,7 @@ class StudiesControllerTest extends TestCase
 
     protected $repository;
 
-    public function setUp() {
+    public function __construct() {
      //   $this->login();
         $this->repository = Mockery::mock(StudyRepository::class);
     }
@@ -40,8 +40,8 @@ class StudiesControllerTest extends TestCase
      *
      */
     public function testIndex() {
-        $this->login();
-        $this->actingAs($user);
+        $this->repository->ShouldReceive('all')->once()->andReturn(collect([]));
+
         $this->get('studies');
         $this->assertResponseOk();
 
