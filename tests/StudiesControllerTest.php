@@ -11,14 +11,19 @@ class StudiesControllerTest extends TestCase
      *
      * @return void
      */
+
+    use DatabaseMigrations;
+
     public function testExample()
     {
         $this->assertTrue(true);
     }
 
     public function testIndex() {
+        $user=factory(App\User::class)->create();
+        $this->actingAs($user);
         $this->call('GET','studies');
-        $this->assertTrue(true);
+        $this->assertResponseOk();
     }
 
 }
