@@ -26,11 +26,15 @@ class StudiesControllerTest extends TestCase
 
     public function testIndex() {
         $user=factory(App\User::class)->create();
+        $studies=factory(Scool\Curriculum\Models\Study::class,50)->create();
         $this->actingAs($user);
         $this->get('studies');
         $this->assertResponseOk();
 
         $this->assertViewHas('studies');
+
+        $studies= $this->response->getOriginalContent()->getData();
     }
+
 
 }
