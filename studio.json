@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "paths": [
+        "../../scool/curriculum",
+        "../../scool/acacha/periods",
+        "../../scool/ebre_escool_model"
+    ]
+}
