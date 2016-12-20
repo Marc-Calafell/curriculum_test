@@ -40,15 +40,16 @@ class StudiesControllerTest extends TestCase
      *
      */
     public function testIndex() {
+        $this->login();
+
         $this->repository->ShouldReceive('all')->once()->andReturn(collect([]));
+
+        $this->createDummySudies();
 
         $this->get('studies');
         $this->assertResponseOk();
-
         $this->assertViewHas('studies');
-
         $studies= $this->response->getOriginalContent()->getData()['studies'];
-
         $this->assertInstanceOf(Illuminate\Database\Eloquent\Collection::class, $studies);
     }
 
@@ -66,6 +67,22 @@ public function testStore(){
         $user = factory(App\User::class)->create();
         $studies = factory(Scool\Curriculum\Models\Study::class, 50)->create();
         return array($user, $studies);
+    }
+
+
+    private function createDummySudies()  {
+
+        $study1= new Study();
+        $study2= new Study();
+        $study3= new Study();
+
+        $studies = [
+            $study1,
+            $study2,
+            $study3
+        ];
+
+        return collect($studies);
     }
 
 
