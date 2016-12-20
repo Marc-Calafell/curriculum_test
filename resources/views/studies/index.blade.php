@@ -20,8 +20,15 @@
                         </div>
                     </div>
                     <div class="box-body" style="display: none;">
-                        <form role="form">
 
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                            Studi created de puta mare.
+                        </div>
+
+                        <form role="form" action="/studies" method="post">
+                            {{csrf_field()}}
                             <div class="form-group">
                                 <label>Name</label>
                                 <input type="text" class="form-control" placeholder="Enter the name of studie">
@@ -30,24 +37,22 @@
 
                             <!-- input states -->
                             <div class="form-group has-success">
-                                <label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Input with success</label>
+                                <label class="control-label" for="inputSuccess"><i class="fa fa-check"></i>Name</label>
                                 <input type="text" class="form-control" id="inputSuccess" placeholder="Enter ...">
-                                <span class="help-block">Help block with success</span>
+                                <span class="help-block">success</span>
                             </div>
                             <div class="form-group has-warning">
-                                <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Input with
-                                    warning</label>
+                                <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Name</label>
                                 <input type="text" class="form-control" id="inputWarning" placeholder="Enter ...">
-                                <span class="help-block">Help block with warning</span>
+                                <span class="help-block">warning</span>
                             </div>
                             <div class="form-group has-error">
-                                <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Input with
-                                    error</label>
+                                <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Name</label>
                                 <input type="text" class="form-control" id="inputError" placeholder="Enter ...">
-                                <span class="help-block">Help block with error</span>
+                                <span class="help-block">error</span>
                             </div>
 
-
+                            <input type="submit">
 
 
 
